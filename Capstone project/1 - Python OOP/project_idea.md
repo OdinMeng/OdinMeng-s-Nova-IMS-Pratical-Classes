@@ -51,15 +51,12 @@ Result of the *class 1 notebook* of *Capstone Project*. The main result is a *"m
 **NOTE.** There were no further instructions on damage calculation, so I did as following.
 
 **Combat system idea.** Let *s* and *d* be respectively the strength and defense of two players. Suppose that player with strength *s* attacks the one with defense *d*. Then let *DMG*, e.g. the damage dealt, be calculated with the random formula:
-$$
-\mathbf{DMG} = ⌊ \mathcal{N}(\mu=s, \sigma = 5) ⌋ - ⌊ \mathcal{N}(\mu=d(0.75), \sigma = 15) ⌋ 
-$$
+$$\mathbf{DMG} = ⌊ \mathcal{N}(\mu=s, \sigma = 5) ⌋ - ⌊ \mathcal{N}(\mu=d(0.75), \sigma = 15) ⌋ $$
+
 Note that $\mathcal{N}(\mu, \sigma)$ denotes the *gaussian distribution* with mean $\mu$ and standard deviation $\sigma$.
 
 Moreover, we have the following conditioning:
-$$
-\mathbf{DMG}_{\text{final} } = \left\{ \begin{align*}&0, \mathbf{DMG} <0 \\ &\mathbf{DMG},\mathbf{DMG} \in [0, 100) \\ &99, \mathbf{DMG} \geq 100 \end{align*}\right.
-$$
+$$\mathbf{DMG}_{\text{final} } = \left\{ \begin{align*}&0, \mathbf{DMG} <0 \\ &\mathbf{DMG},\mathbf{DMG} \in [0, 100) \\ &99, \mathbf{DMG} \geq 100 \end{align*}\right.$$
 
 ---
 
