@@ -8,16 +8,17 @@ Command syntax: python ./tests.py [arg]
     -i : tests inventory.py
     -ci : tests character.py integrated with inventory.py
     -b : tests combat.py
-    omitted : tests all of the above
+    -all : tests all
+    omitted : same as -h
 
-NOTE: game.py is not tested
+NOTE: game.py is not tested, it's in main.py
 """
 
 def help_user():
     print(help_text)
-    pass #TODO
 
 def test1()->int:
+    from character import Character #not gonna do this tbh
     pass #TODO
 
 def test2()->int:
@@ -61,10 +62,33 @@ def test2()->int:
     return score
 
 def test3()->int:
-    pass #TODO
+    from inventory import Inventory
+    from character import Character
+    brugo = Character("brugo","ferrari",10,20,30,8)
+    brugo.inventory.add_item("Sword")
+    brugo.inventory.add_item("Potion")
+    print(brugo.get_inventory())
+    print(brugo.use_item("Sword"))
+    print(brugo.get_inventory())
 
 def test4()->int:
-    pass #TODO
+    from character import Character
+
+    Jon = Character("Jon Snow", "A", 20, 15, 10, 10, 10)
+    Ramsay = Character("Ramsay Bolton", "B", 10, 25, 10, 10, 10)
+
+    for i in range(10):
+        print(f"{'='*10} TURN {i} {'='*10}")
+        print(Jon.combat(Ramsay))
+
+        if Ramsay.health <= 0:
+            print("Ramsay perished in battle!")
+            break
+
+        print(Ramsay.combat(Jon))
+        if Jon.health <= 0:
+            print("Jon perished in battle!")
+            break
 
 if len(argv) > 1:
     print("Running tests on inventory.py ...")
@@ -73,12 +97,20 @@ if len(argv) > 1:
     if argv[1] == "-i":
         score = test2()
         print(f"{'='*30}\nInventory test result: {score} out of 13")
+    if argv[1] == "-c":
+        test1()
+    if argv[1] == "-ci":
+        test3()
+    if argv[1] == "-b":
+        test4()
+    
+    if argv[1] == "-all":
+        test1()
+        score = test2()
+        print(f"{'='*30}\nInventory test result: {score} out of 13")
+        test3()
+        test4()
 
 elif len(argv) == 1:
-    score_1 = test1()
-    score_2 = test2()
-    score_3 = test3()
-    score_4 = test4()
-
-    print(f"Score: {score_1+score_2+score_3+score_4} out of ... #TODO")
-
+    
+    help_user()

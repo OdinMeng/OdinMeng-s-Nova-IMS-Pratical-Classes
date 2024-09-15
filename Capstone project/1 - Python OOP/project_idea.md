@@ -3,7 +3,8 @@ Result of the *class 1 notebook* of *Capstone Project*. The main result is a *"m
 
 ---
 
-**Exercise 1: Enhancing the Character Class**
+## Exercise 1: Enhancing the Character Class
+**Solved in `character.py`**
 
 1. **Add an attribute for attack strength:**
     - Modify the `__init__` method to include `strength`, `intelligence`, `charisma` attributes.
@@ -17,7 +18,8 @@ Result of the *class 1 notebook* of *Capstone Project*. The main result is a *"m
 
 ---
 
-**Exercise 2: Managing Character Healt**
+## Exercise 2: Managing Character Health
+**Solved in `character.py`**
 
 1. **Add a `get_health` method:**
     - Define a method called `get_health` that takes no arguments.
@@ -31,7 +33,8 @@ Result of the *class 1 notebook* of *Capstone Project*. The main result is a *"m
 
 ---
 
-**Exercise 3: Add an inventory system**
+## Exercise 3: Add an inventory system
+**Solved in `inventory.py`**
 
 1. **Implement an `Inventory` class and integrate it with the `Character` class:**
     - `Inventory` should have methods to add, remove items and get the total_value
@@ -40,7 +43,8 @@ Result of the *class 1 notebook* of *Capstone Project*. The main result is a *"m
 
 ---
 
-**Exercise 4: Implement a combat system**
+## Exercise 4: Implement a combat system
+**Solved in `character.py`**
 
 1. **Create a `combat()` function that simulates combat between two characters:**
     - Add an attribute defense to `Character` class.
@@ -51,16 +55,19 @@ Result of the *class 1 notebook* of *Capstone Project*. The main result is a *"m
 **NOTE.** There were no further instructions on damage calculation, so I did as following.
 
 **Combat system idea.** Let *s* and *d* be respectively the strength and defense of two players. Suppose that player with strength *s* attacks the one with defense *d*. Then let *DMG*, e.g. the damage dealt, be calculated with the random formula:
-$$\mathbf{DMG} = ⌊ \mathcal{N}(\mu=s, \sigma = 5) ⌋ - ⌊ \mathcal{N}(\mu=d(0.75), \sigma = 15) ⌋ $$
+
+![initial equation](./latex_images/dmg_initial.png)
 
 Note that $\mathcal{N}(\mu, \sigma)$ denotes the *gaussian distribution* with mean $\mu$ and standard deviation $\sigma$.
 
+![final equation](./latex_images/dmg_final.png)
+
 Moreover, we have the following conditioning:
-$$\mathbf{DMG}_{\text{final} } = \left\{ \begin{align*}&0, \mathbf{DMG} <0 \\ &\mathbf{DMG},\mathbf{DMG} \in [0, 100) \\ &99, \mathbf{DMG} \geq 100 \end{align*}\right.$$
 
 ---
 
 **Exercise 5: Implement a Game Board and Character Placement System**
+**Solved in `game.py` and `main.py`**
 
 1. **Implement the create_board(size) function:**
     - Create and return a 2D list representing the game board.
