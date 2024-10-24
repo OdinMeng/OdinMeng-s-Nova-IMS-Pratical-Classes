@@ -1,0 +1,56 @@
+CREATE DATABASE Exr11;
+GO
+
+USE Exr11;
+GO
+
+CREATE TABLE R(
+	W INT, 
+	X INT, 
+	Y INT, 
+	Z INT, 
+	PRIMARY KEY(W, X)
+);
+
+CREATE TABLE S(
+	A INT, 
+	B INT, 
+	PRIMARY KEY(A)
+);
+
+GO
+
+-- Exercise i;
+ALTER TABLE R
+ADD CONSTRAINT unique_z UNIQUE (Z);
+GO
+
+-- Exercise ii;
+DROP TABLE R
+CREATE TABLE R(
+	W INT, 
+	X INT, 
+	Y INT, 
+	Z INT UNIQUE, 
+	PRIMARY KEY(W, X)
+);
+
+GO
+
+-- Exercise iii;
+ALTER TABLE R
+ADD CONSTRAINT fk_Y
+	FOREIGN KEY (Z) REFERENCES S (A);
+GO
+
+-- Exercise iv;
+DROP TABLE R
+CREATE TABLE R(
+	W INT, 
+	X INT, 
+	Y INT, 
+	Z INT UNIQUE, 
+	PRIMARY KEY(W, X),
+	FOREIGN KEY (Y) REFERENCES S (A)
+);
+GO

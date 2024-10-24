@@ -1,0 +1,11 @@
+Open the Practical 04 (available in Moodle)​
+
+Solve exercise 9 (individually). TVShows exercise​
+
+In Moodle, folder “Materials Practical Class” you will find the file “TVShows_DDL_ex1.sql”. Use it for exercise 9. i)​
+
+Everything you need to know is in the WorkBook, chapter “Introduction to SQL Server Management Studio (SSMS)”​
+
+We will do exercise 9. iii) together​
+
+In case of doubts, call the professor

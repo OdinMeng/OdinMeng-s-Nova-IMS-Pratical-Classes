@@ -1,0 +1,20 @@
+How to create macros
+1. record macro
+2. view macro code
+	2.1. delete any part that has a specific reference
+3. done
+
+How to detect duplicates: feature in 'data'
+How to detect outliers: visualize with boxplots and everything that is outside of [min,max] is an outlier OR histogram
+	if normal distribution => check boxplot
+		what to do with outliers? 
+			delete them
+			OR separate analysis
+What to do with missing values:
+	- 1: predict value with predictive techniques (knn)
+	- 2: in some cases, delete
+How to predict values:
+	- New sheet -> import Excel sheet -> transform data (power query)
+		find variables that are "important" for predicting
+		sort the table by these variables
+		
